@@ -1,0 +1,172 @@
+html, body{
+
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	background: #f1f1f1;
+}
+.main-container{
+
+	width: 100%;
+	text-align: center;
+	padding: 0;
+	background: #e0e0e0;
+	height: 100%;
+}
+.create-schedule{
+
+	margin: 0 auto !important;
+    float: none;
+    background: #fff;
+    padding: 2rem 1rem;
+	box-shadow: 0px 2px 2px 0 #ddd;
+	-webkit-box-shadow: 0px 2px 2px 0 #ddd;
+	-moz-box-shadow: 0px 2px 2px 0 #ddd;
+}
+.main-container nav{
+
+	margin-bottom: 0px;
+}
+.schedule-list-content h2{
+
+	color: #009688;
+	margin-bottom: 20px;
+}
+.error-msg{
+
+	padding: 5px 0;
+	color: red;
+	font-size: 12px;
+	display: block;
+	text-align: center;
+}
+.create-schedule h2{
+
+    margin: 1rem 0 1.5rem;
+    color: #009688;
+}
+.main-view{
+
+	height: 100%;
+	width: 100%;
+}
+.schedule-list-item{
+
+	background: #fff;
+	margin: 0.5rem;
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+    padding: 1rem;
+    box-shadow: 1px 1px 2px 1px #ddd;
+}
+.conference-icon{
+
+	position: absolute;
+    right: 10px;
+}
+.conference-icon .fa{
+
+	font-size: 20px;
+    color: #009688;
+}
+.join-conference-container{
+
+	width: 50%;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 1px 1px 2px 2px #ddd;
+    padding: 2rem 1rem;
+}
+.conference-details{
+
+	text-align: left;
+}
+.conference-details span{
+
+    color: #333;
+    font-size: 15px;
+    font-weight: 600;
+}
+.agenda h5{
+
+	color: #535353;
+}
+.join-now{
+
+	color: #009688;
+}
+.agenda{
+
+	font-size: 15px;
+    color: #666;
+    text-align: left;
+}
+.conference-type{
+
+	font-size: 25px;
+    color: #535353;
+}
+.conference-on{
+
+	font-size: 18px;
+	color: #535353;
+}
+.schedule-list-item div{
+
+	text-align: left;
+}
+.schedule-list-item h5{
+
+	font-weight: bold;
+}
+.schedule-list-item span{
+
+	font-weight: normal;
+}
+.email-list {
+
+    height: 100px;
+    padding: 0rem;
+    overflow-y: auto;
+}
+.email-list h5{
+
+	color: #535353;
+	font-size: 15px;
+	text-align: left;
+}
+.email-list li{
+
+	list-style: none;
+    text-align: left;
+}
+.list-row{
+
+	margin: 0 auto;
+}
+.create-btn{
+
+	background: #26a69a;
+	border:1px solid #26a69a;
+	color: #fff;
+	font-weight: 500;
+	font-size: 15px;
+	text-transform: uppercase;
+}
+.create-btn:hover{
+
+	background: #009688;
+	color: #fff;
+	border:1px solid #009688;
+}
+.create-schedule-row{
+
+	height: 100%;
+	width: 100%;
+	display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+	align-items: center;
+}

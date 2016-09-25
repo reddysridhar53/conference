@@ -1,0 +1,56 @@
+<div class="row list-row container">
+
+	<div class="col-lg-12 col-sm-12 col-md-12">
+		<div class="schedule-list-content">
+			<h2> Join Conference </h2>
+			<div class="join-conference-container">
+				<div class="conference-details" ng-init="getDetails()">
+					<div class="conference-type">
+						<h5>Conference Type:<span>{{conferenceItem.type}}</span></h5>
+					</div>
+					<div class="conference-on">
+						<h5>Conference On: <span>{{conferenceItem.schedule}}</span></h5>
+					</div>
+					<div class="agenda">
+						<h5>Agenda</h5>
+						{{conferenceItem.agenda}}
+					</div>
+				</div>
+				<div class="join-conference-details">
+					<h3>Enter your Details </h3>
+					<span ng-if="showError" class="error-msg">{{errorMsg}}</span>
+					
+					<form name="joinconferenceForm" ng-submit="joinConference()">
+						<div class="form-group">
+						    <input type="text" class="form-control" ng-model="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" required>
+						</div>
+						<div class="form-group">
+						   <select class="form-control ng-pristine ng-invalid ng-invalid-required" name="group" ng-model="location" placeholder="Location Group" required="">
+									<option value="">- Select Location-</option>
+									<option ng-repeat="location in locationTypes" data-locationId = "{{location.id}}">{{location.text}}</option>
+							</select>
+						</div>
+						<div class="form-group">
+						    <input type="email" class="form-control" ng-model="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+						</div>
+						<div class="form-group">
+						    <input type="text" class="form-control" ng-model="phone" id="exampleInputPassword1" placeholder="Phone" required>
+						</div>
+						<div class="form-check">
+						    <label class="form-check-label">
+						    	<input type="checkbox" class="form-check-input" ng-model="audio">
+						      	Mute Audio
+						    </label>
+						    <label ng-if="conferenceItem.type =='VIDEO'" class="form-check-label">
+						    	<input type="checkbox" class="form-check-input" ng-model="video">
+						      	Mute Video
+						    </label>
+						</div>
+						<button type="submit" class="btn create-btn">join conference</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
