@@ -1,5 +1,6 @@
 var app = angular.module('CallHubConference', ['ngRoute', 'firebase', 'ui.bootstrap', 
-  'moment-picker', 'ctrls.createctrl', 'ctrls.listctrl', 'service.helpers', 'ctrls.joinctrl']);
+  'moment-picker', 'ctrls.createctrl', 'ctrls.listctrl', 'service.helpers', 'ctrls.joinctrl',
+  'ctrls.roomctrl']);
 
 'use strict';
 
@@ -17,6 +18,12 @@ app.config(['$routeProvider', function($routeProvider, $urlRouterProvider){
 
       templateUrl: 'templates/list.html',
       controller: 'listCtrl',
+      private : true
+  })
+  .when('/conference/room/:id', {
+
+      templateUrl: 'templates/room.html',
+      controller: 'roomCtrl',
       private : true
   })
   .when('/conference/join/:id', {
