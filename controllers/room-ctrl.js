@@ -2,13 +2,14 @@
 
 angular.module('ctrls.roomctrl', [])
 
-.controller("roomCtrl", function($scope,$rootScope, $firebase, $location,$window,createUniqueIdService, $routeParams){
+.controller("roomCtrl", function($scope, $timeout, $rootScope, $firebase, $location,$window,createUniqueIdService, $routeParams){
 
 	$scope.participents = [];
 	var participentsArr = []
 	$scope.chat = {};
 	$scope.chat.chatActive = false;
 	$scope.chatActive = false;
+	$scope.pariticipent = {};
 
 	var fireBase = new Firebase("https://callhub-conference.firebaseio.com/"+$routeParams.id);
 
@@ -21,7 +22,7 @@ angular.module('ctrls.roomctrl', [])
 
 			for(var i=0;i<keys.length;i++){
 
-
+				participents[keys[i]].key = keys[i];
 				participentsArr.push(participents[keys[i]])
 			}
 
@@ -47,6 +48,11 @@ angular.module('ctrls.roomctrl', [])
 		return '';
 	}
 
+	$scope.closeChat = function(){
+
+		$scope.chat.chatActive = false;
+	}
+
 	$scope.openChat = function(){
 
 		if($scope.chatActive){
@@ -57,4 +63,30 @@ angular.module('ctrls.roomctrl', [])
 			$scope.chat.chatActive = true;
 		}
 	}
+
+	$scope.muteAction = function(e,type){
+
+		if(type == "audio" || type == "video"){
+
+			if($(e.currentTarget).hasClass("false")){
+
+				$(e.currentTarget).removeClass("false").addClass("true")
+			}else{
+
+				$(e.currentTarget).addClass("false").removeClass("true")
+			}
+		}
+
+		if(type == "close"){
+
+			var key = $(".card-key").attr("data-key")
+			var firebase = new Firebase("https://callhub-conference.firebaseio.com/"+$routeParams.id+"/"+key)
+			firebase.remove();
+			$timeout(function(){
+
+				$window.location.reload();
+			}, 1000)
+		}
+	}
+
 })

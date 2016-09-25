@@ -69,7 +69,7 @@ angular.module('ctrls.createctrl', [])
 		schedules.$add(obj).then(function(data){
 
 			$scope.showError = false;
-			$window.location.reload();
+			$window.location.href = "#/conference/list";
 		}, function(err){
 
 			$scope.showError = true;

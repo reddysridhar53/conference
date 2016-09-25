@@ -2,16 +2,42 @@
 
 	<div class="col-lg-12 col-sm-12 col-md-12">
 		<div class="room-window">
-
-
+			<div class="col-lg-2 col-md-4 col-sm-6 schedule-list-item" ng-repeat="pariticipent in participents">
+				<div class="user-profile">
+					<img class="user-img" src="http://res.cloudinary.com/http-yourdost-com/image/upload/v1440092146/team/amitt.png" /> 
+				</div>
+				<div class="conference-type">
+					<h5>Phone: <span>{{pariticipent.phone}}</span></h5>
+				</div>
+				<div class="conference-on">
+					<h5>Email: <span>{{pariticipent.email}}</span></h5>
+				</div>
+				<div class="agenda">
+					<h5>Location: <span>{{pariticipent.location}}</span></h5>
+				</div>
+				<input type="hidden" data-key={{pariticipent.key}} class="card-key">
+				<div class="card-actions">
+					<span  class="icon-actions {{pariticipent.video}}" title="Mute Video" ng-click="muteAction($event, 'video')"> 
+						<i class="fa fa-video-camera" aria-hidden="true"></i>
+					</span>
+					<span  class="icon-actions {{pariticipent.audio}}" title="Mute Audio" ng-click="muteAction($event,'audio')"> 
+						<i class="fa fa-volume-up" aria-hidden="true"></i>
+					</span>
+					<span  class="icon-actions" title="Exit Conference" ng-click="muteAction($event, 'close')"> 
+						<i class="fa fa-times-circle" aria-hidden="true"></i>
+					</span>
+				</div>
+			</div>
 		</div>
 		<div class="fixed-footer">
 
 		</div>
 		<div ng-class="getActiveState()" class="chat-window">
-
+			<span class="chat-close-icon" ng-click="closeChat()">
+				<i class="fa fa-times-circle" aria-hidden="true"></i>
+			</span>
 		</div>	
-		<div class="chat-open" ng-click="openChat()">
+		<div ng-class="getActiveState()" class="chat-open" ng-click="openChat()">
 			<span>
 				<i class="fa fa-comment" aria-hidden="true"></i>
 			</span>
