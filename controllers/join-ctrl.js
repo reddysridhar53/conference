@@ -36,11 +36,8 @@ angular.module('ctrls.joinctrl', [])
 
 				if(schedules[keys[i]].id == $scope.conferenceId){
 
-					$timeout(function(){
-
-						$scope.showLoader = false;
-						$scope.conferenceItem = schedules[keys[i]];
-					},0)
+					$scope.setData(schedules[keys[i]])
+					return;
 				}
 
 			}
@@ -49,6 +46,15 @@ angular.module('ctrls.joinctrl', [])
 
 		  	console.log("The read failed: " + errorObject.code);
 		});
+	}
+
+	$scope.setData = function(data){
+
+		$timeout(function(){
+
+			$scope.showLoader = false;
+			$scope.conferenceItem = data;
+		}, 0)
 	}
 
 	$scope.joinConference = function(){
