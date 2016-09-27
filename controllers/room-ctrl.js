@@ -9,6 +9,7 @@ angular.module('ctrls.roomctrl', [])
 	$scope.chat = {};
 	$scope.chat.chatActive = false;
 	$scope.chatActive = false;
+	$scope.noParticipants = true;
 	$scope.pariticipent = {};
 
 	$scope.chat.activeVideo = true;
@@ -16,16 +17,6 @@ angular.module('ctrls.roomctrl', [])
 	$scope.chat.activeAudio = true;
 	$scope.count = 1;
 
-	$scope.noParticipants = function(){
-
-		if($scope.participents != null && $scope.participents.length > 0){
-
-			return true
-		}else{
-
-			return false;
-		}
-	}
 
 	var fireBase = new Firebase("https://callhub-conference.firebaseio.com/"+$routeParams.id);
 
@@ -34,15 +25,23 @@ angular.module('ctrls.roomctrl', [])
 		fireBase.on("value", function(snapshot) {
 		  
 			var participents = snapshot.val();
-			var keys = Object.keys(participents);
 
-			for(var i=0;i<keys.length;i++){
+			if(participents == null){
 
-				participents[keys[i]].key = keys[i];
-				participentsArr.push(participents[keys[i]])
+				$scope.noParticipants = false;
+				return;
+			}else{
+
+				var keys = Object.keys(participents);
+
+				for(var i=0;i<keys.length;i++){
+
+					participents[keys[i]].key = keys[i];
+					participentsArr.push(participents[keys[i]])
+				}
+				$scope.participents = participentsArr;
+				$scope.noParticipants =  true;
 			}
-
-			$scope.participents = participentsArr;
 
 		}, function (errorObject) {
 

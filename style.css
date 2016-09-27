@@ -14,6 +14,16 @@ html, body{
 	background: #f1f1f1;
 	height: 100%;
 }
+.main-container .navbar-default{
+
+	position: fixed;
+    width: 100%;
+    box-shadow: 1px 1px 1px 0px #ddd;
+    z-index: 1001;
+    border-radius: 0px;
+    border: 1px solid rgba(255,255,255,1);
+    background: rgba(255,255,255,0.8);
+}
 .create-schedule-inner{
 
     background: #fff;
@@ -46,13 +56,14 @@ html, body{
 }
 .create-schedule h2{
 
-    margin: 1rem 0 1.5rem;
+    margin: 20px 0 !important;
     color: #009688;
 }
 .main-view{
 
 	min-height: 100%;
 	width: 100%;
+	margin-top: 52px;
 	background: -webkit-linear-gradient(to bottom, rgba(224,242,241, 0.3), rgba(224,242,241,0.6), rgba(224,242,241,0.9));
     background: -o-linear-gradient(to bottom, rgba(224,242,241, 0.3), rgba(224,242,241,0.6), rgba(224,242,241,0.9)); 
     background: -moz-linear-gradient(to bottom, rgba(224,242,241, 0.3), rgba(224,242,241,0.6), rgba(224,242,241,0.9));
@@ -66,7 +77,8 @@ html, body{
 .schedule-list-item{
 
 	background: #fff;
-	margin: 0.5rem;
+	margin: 1rem 0.5rem;
+
     display: inline-block;
     float: none;
     vertical-align: middle;
@@ -192,6 +204,16 @@ html, body{
 	display: -moz-flex;
 	align-items: center;
 }
+.no-participents{
+
+	padding: 10px;
+    background: #ffc107;
+    color: #fff;
+    font-weight: 600;
+    margin: 10% auto;
+    width: 50%;
+    border-radius: 10px;
+}
 .chat-open{
 
 	visibility: visible;
@@ -314,11 +336,11 @@ html, body{
 }
 .chat-window .message-wrapper{
 
-	display: none !important;
+	visibility: hidden;
 }
 .chat-window.active .message-wrapper{
 
-	display: inline-block !important;
+	visibility:visible ;
 }
 .chat-content{
 
