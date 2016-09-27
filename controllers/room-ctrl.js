@@ -16,6 +16,7 @@ angular.module('ctrls.roomctrl', [])
 	$scope.messages = [];
 	$scope.chat.activeAudio = true;
 	$scope.count = 1;
+	$scope.showLoader = true;
 
 
 	var fireBase = new Firebase("https://callhub-conference.firebaseio.com/"+$routeParams.id);
@@ -28,7 +29,11 @@ angular.module('ctrls.roomctrl', [])
 
 			if(participents == null){
 
-				$scope.noParticipants = false;
+				$timeout(function(){
+
+					$scope.showLoader = false;
+					$scope.noParticipants = false;
+				},0)
 				return;
 			}else{
 
@@ -39,7 +44,11 @@ angular.module('ctrls.roomctrl', [])
 					participents[keys[i]].key = keys[i];
 					participentsArr.push(participents[keys[i]])
 				}
-				$scope.participents = participentsArr;
+				$timeout(function(){
+
+					$scope.showLoader = false;
+					$scope.participents = participentsArr;
+				}, 0);
 				$scope.noParticipants =  true;
 			}
 

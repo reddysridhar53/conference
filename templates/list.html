@@ -4,6 +4,9 @@
 		<div class="schedule-list-content">
 			<h2> My Conference Schedules </h2>
 			<div class="schedule-list-container">
+				<div ng-if="showLoader" class="showloader">
+					<img src="images/loader.gif">
+				</div>
 				<div class="col-lg-3 col-md-4 col-sm-6 schedule-list-item" ng-repeat="schedule in schedules | sortByDates : schedules">
 					<div class="conference-icon">
 						<span class="card-icon">

@@ -2,10 +2,11 @@
 
 angular.module('ctrls.joinctrl', [])
 
-.controller('joinCtrl', function($scope,$rootScope, $firebase, $location,$window,createUniqueIdService, $routeParams){
+.controller('joinCtrl', function($scope,$rootScope, $timeout, $firebase, $location,$window,createUniqueIdService, $routeParams){
 
 	$scope.conferenceId = $routeParams.id;
 	$scope.showError = false;
+	$scope.showLoader = true;
 
 	$scope.locationTypes = [
 		{
@@ -35,7 +36,11 @@ angular.module('ctrls.joinctrl', [])
 
 				if(schedules[keys[i]].id == $scope.conferenceId){
 
-					$scope.conferenceItem = schedules[keys[i]]
+					$timeout(function(){
+
+						$scope.showLoader = false;
+						$scope.conferenceItem = schedules[keys[i]];
+					},0)
 				}
 
 			}

@@ -2,10 +2,11 @@
 
 angular.module('ctrls.listctrl', [])
 
-.controller("listCtrl", function($scope,$rootScope, $firebase, $location,$window,createUniqueIdService){
+.controller("listCtrl", function($scope,$rootScope, $timeout, $firebase, $location,$window,createUniqueIdService){
 
 	$scope.schedules = [];
 	var schedulesArr = []
+	$scope.showLoader = true;
 
 	var fireBase = new Firebase("https://callhub-conference.firebaseio.com/schedules");
 
@@ -21,8 +22,10 @@ angular.module('ctrls.listctrl', [])
 
 				schedulesArr.push(schedules[keys[i]])
 			}
-
-			$scope.schedules = schedulesArr;
+			$timeout(function(){
+				$scope.showLoader = false;
+				$scope.schedules = schedulesArr;
+			}, 0)
 
 		}, function (errorObject) {
 
