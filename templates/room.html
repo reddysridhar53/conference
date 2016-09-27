@@ -2,7 +2,10 @@
 
 	<div class="col-lg-12 col-sm-12 col-md-12 p0">
 		<div class="room-window">
-			<div class="col-lg-2 col-md-4 col-sm-6 schedule-list-item" ng-repeat="pariticipent in participents">
+			<div ng-show="noParticipants()">
+				No one has joined the conference yet...
+			</div>
+			<div ng-show="!noParticipants()" class="col-lg-2 col-md-4 col-sm-6 schedule-list-item" ng-repeat="pariticipent in participents">
 				<div class="user-profile">
 					<img class="user-img" src="http://res.cloudinary.com/http-yourdost-com/image/upload/v1440092146/team/amitt.png" /> 
 				</div>

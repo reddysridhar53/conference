@@ -16,6 +16,17 @@ angular.module('ctrls.roomctrl', [])
 	$scope.chat.activeAudio = true;
 	$scope.count = 1;
 
+	$scope.noParticipants = function(){
+
+		if($scope.participents != null && $scope.participents.length > 0){
+
+			return true
+		}else{
+
+			return false;
+		}
+	}
+
 	var fireBase = new Firebase("https://callhub-conference.firebaseio.com/"+$routeParams.id);
 
 	$scope.getAllParticipants = function(){
