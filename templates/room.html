@@ -1,6 +1,6 @@
 <div class="row" ng-init="getAllParticipants()">
 
-	<div class="col-lg-12 col-sm-12 col-md-12">
+	<div class="col-lg-12 col-sm-12 col-md-12 p0">
 		<div class="room-window">
 			<div class="col-lg-2 col-md-4 col-sm-6 schedule-list-item" ng-repeat="pariticipent in participents">
 				<div class="user-profile">
@@ -30,12 +30,62 @@
 			</div>
 		</div>
 		<div class="fixed-footer">
+			<div class="moderator-info">
+				<div class="moderator-img">
+					<img class="user-img" src="http://res.cloudinary.com/http-yourdost-com/image/upload/v1440092146/team/amitt.png">
 
+				</div>
+				<div class="moderator-name">
+					Sample
+				</div>
+			</div>
+			<div class="moderator-actions">
+				<div class="moderator-icons">
+					<span  ng-class="getActiveVideo()" class="icon-actions" title="Mute Video" ng-click="muteAll($event, 'video')"> 
+						<i class="fa fa-video-camera" aria-hidden="true"></i>
+					</span>
+					<span  ng-class="getActiveAudio()" class="icon-actions active" title="Mute Audio" ng-click="muteAll($event,'audio')"> 
+						<i class="fa fa-volume-up" aria-hidden="true"></i>
+					</span>
+					<span class="icon-actions moderator-addppl" title="Invite People" ng-click="invitePpl()">
+						<i class="fa fa-users" aria-hidden="true"></i>
+					</span>
+					<span class="icon-actions moderator-exitconf" title="Exit Conference" ng-click="exitConf()">
+						<i class="fa fa-times" aria-hidden="true"></i>
+					</span>	
+				</div>
+			</div>
 		</div>
 		<div ng-class="getActiveState()" class="chat-window">
 			<span class="chat-close-icon" ng-click="closeChat()">
 				<i class="fa fa-times-circle" aria-hidden="true"></i>
 			</span>
+			<div class="chat-window-header">
+				<h4>Chat Window</h4>
+				<div class="chat-content">
+					<div ng-repeat="message in messages track by message.id" class="message-wrapper" >
+						<img class="profile-pic pull-right" 
+			                ng-src="{{::message.image}}" />
+			            <div class="chat-bubble right">
+
+			            <div class="message message-text">
+			            	{{::message.text}}
+			            </div>
+
+			                <div class="message-detail">
+			                    <span 
+			                        class="bold">{{::message.name}}</span>
+			                </div>
+
+			            </div>
+					</div>
+				</div>
+				<form name="chatInputForm" ng-submit="chatSubmit()">
+					<div class="chat-input">
+						<textarea rows="2" ng-model="chat.message" placeholder="Enter Text" ng-keyup="chatSubmit($event)"></textarea>
+					</div>
+				</form>	
+			</div>
 		</div>	
 		<div ng-class="getActiveState()" class="chat-open" ng-click="openChat()">
 			<span>

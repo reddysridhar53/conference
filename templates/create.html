@@ -1,36 +1,38 @@
 <div class="row create-schedule-row">
 	<div class="col-md-6 col-lg-4 col-sm-10 create-schedule">
-		<h2>Create Conference Schedule</h2>
-		<span ng-if="showError" class="error-msg">{{errorMsg}}</span>
-		<form name="createScheduleForm" ng-submit="createSchedule()">
-			
-			<div class="form-group">
-			   <select class="form-control ng-pristine ng-invalid ng-invalid-required" name="group" ng-model="conferenceType" placeholder="Conference Group" required="">
-						<option value="">- Select Conference Type-</option>
-						<option ng-repeat="conference in conferenceTypes" data-conferenceId = "{{conference.id}}">{{conference.text}}</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<div class="input-group"
-				     moment-picker="scheduleDate"
-				     format="YYYY-MM-DD HH:MM">
-				    <span class="input-group-addon">
-				        <i class="fa fa-calendar"></i>
-				    </span>
-				    <input class="form-control"
-				           placeholder="Select a date"
-				           ng-model="scheduleDate"
-				           ng-model-options="{ updateOn: 'blur' }">
+		<h2>Scedule Conference</h2>
+		<div class="create-schedule-inner">
+			<span ng-if="showError" class="error-msg">{{errorMsg}}</span>
+			<form name="createScheduleForm" ng-submit="createSchedule()">
+				
+				<div class="form-group">
+				   <select class="form-control ng-pristine ng-invalid ng-invalid-required" name="group" ng-model="conferenceType" placeholder="Conference Group" required="">
+							<option value="">- Select Conference Type-</option>
+							<option ng-repeat="conference in conferenceTypes" data-conferenceId = "{{conference.id}}">{{conference.text}}</option>
+					</select>
 				</div>
-			</div>
-			<div class="form-group">
-				<input type="text" name="emails" placeholder="Enter Email Ids Seperated by ,"  ng-model="participents" class="form-control" ng-list required>
-			</div>
-			
-			<div class="form-group">
-			    <textarea class="form-control" ng-model="conferenceAgenda" id="agendaDesc" placeholder="Enter Agenda" rows="3" required></textarea>
-			</div>
-			<button type="submit" class="btn create-btn">Create schedule</button>
-		</form>
+				<div class="form-group">
+					<div class="input-group"
+					     moment-picker="scheduleDate"
+					     format="YYYY-MM-DD HH:MM">
+					    <span class="input-group-addon">
+					        <i class="fa fa-calendar"></i>
+					    </span>
+					    <input class="form-control"
+					           placeholder="Select a date"
+					           ng-model="scheduleDate"
+					           ng-model-options="{ updateOn: 'blur' }">
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="text" name="emails" placeholder="Enter Email Ids Seperated by ,"  ng-model="participents" class="form-control" ng-list required>
+				</div>
+				
+				<div class="form-group">
+				    <textarea class="form-control" ng-model="conferenceAgenda" id="agendaDesc" placeholder="Enter Agenda" rows="3" required></textarea>
+				</div>
+				<button type="submit" class="btn create-btn">schedule</button>
+			</form>
+		</div>	
 	</div>
 </div>

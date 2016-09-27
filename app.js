@@ -85,7 +85,11 @@ app.filter('sortByDates', function(){
     return items;
   }
 })
-app.controller('rootCtrl', function($scope, $rootScope){
+app.controller('rootCtrl', function($scope, $rootScope,$location){
 
-
+  $scope.navClass = function (page) {
+        
+    var currentRoute = $location.path().substring(1);
+    return page === currentRoute ? 'active' : '';
+  };   
 })
